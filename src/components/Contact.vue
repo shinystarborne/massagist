@@ -40,8 +40,9 @@
             
             <a href="https://t.me/lilia_massage" class="action-btn telegram-btn cyrillic-text" target="_blank">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9z" stroke="currentColor" stroke-width="2"/>
-                <path d="M15 10l-4 4l6 6l4-16l-6 6z" stroke="currentColor" stroke-width="2"/>
+                <path d="M21.198 2.802a1.5 1.5 0 0 0-1.651-.219L2.603 9.125a1.5 1.5 0 0 0 .09 2.815L8.5 13.5l1.56 5.807a1.5 1.5 0 0 0 2.815.09l6.542-16.944a1.5 1.5 0 0 0-.219-1.651z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 13.5l13-13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.5 6.5l-6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <div class="btn-content">
                 <span class="btn-title">Telegram</span>
