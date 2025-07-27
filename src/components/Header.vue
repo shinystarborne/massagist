@@ -322,8 +322,6 @@ html {
 }
 
 .mobile-menu-toggle:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  outline: none;
 }
 </style>
