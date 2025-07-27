@@ -105,6 +105,21 @@ const icons = {
     <path d="M12 4V2" stroke="currentColor" stroke-width="2"/>
     <path d="M16.2 5.8L17.6 4.4" stroke="currentColor" stroke-width="2"/>
     <path d="M7.8 5.8L6.4 4.4" stroke="currentColor" stroke-width="2"/>
+  </svg>`,
+  
+  weeklyPackage: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="4" width="18" height="15" rx="2" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.1"/>
+    <path d="M8 2v4M16 2v4" stroke="currentColor" stroke-width="2"/>
+    <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
+    <circle cx="8" cy="14" r="1" fill="currentColor"/>
+    <circle cx="12" cy="14" r="1" fill="currentColor"/>
+    <circle cx="16" cy="14" r="1" fill="currentColor"/>
+  </svg>`,
+  
+  monthlyPackage: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L15.09 8.26L22 9L15.09 9.74L12 16L8.91 9.74L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.2"/>
+    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+    <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2"/>
   </svg>`
 }
 
@@ -180,13 +195,37 @@ const bookService = () => {
 <style scoped>
 .services {
   padding: var(--space-3xl) 0;
-  background: var(--bg-secondary);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(210, 180, 140, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(107, 142, 35, 0.03) 0%, transparent 50%),
+    var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(210, 180, 140, 0.02), transparent);
+  animation: shimmer 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-xl);
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Header */
@@ -246,9 +285,10 @@ const bookService = () => {
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(210, 180, 140, 0.05) 100%);
 }
 
 .service-card:hover::before {

@@ -1,5 +1,13 @@
 <template>
   <section class="hero" id="home">
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+      <div class="floating-circle floating-circle-1"></div>
+      <div class="floating-circle floating-circle-2"></div>
+      <div class="floating-circle floating-circle-3"></div>
+      <div class="floating-circle floating-circle-4"></div>
+    </div>
+    
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-headline cyrillic-text">
@@ -56,12 +64,86 @@ const scrollToContact = () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(210, 180, 140, 0.03) 0%,
-    rgba(107, 142, 35, 0.05) 100%
-  );
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(210, 180, 140, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(107, 142, 35, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(210, 180, 140, 0.03) 0%, rgba(107, 142, 35, 0.05) 100%);
   z-index: 1;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(210, 180, 140, 0.1), rgba(107, 142, 35, 0.1));
+  animation: float 20s ease-in-out infinite;
+}
+
+.floating-circle-1 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+.floating-circle-3 {
+  width: 40px;
+  height: 40px;
+  top: 80%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+.floating-circle-4 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  right: 25%;
+  animation-delay: -15s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-20px) rotate(270deg);
+    opacity: 0.8;
+  }
 }
 
 .hero-content {

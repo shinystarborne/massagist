@@ -1,24 +1,30 @@
 <template>
   <div id="app" :class="{ loaded: isLoaded }">
+    <ScrollProgress />
     <Header />
     <main class="main-content">
       <Hero id="home" />
       <About id="about" />
       <Services id="services" />
+      <Packages id="packages" />
       <Contact id="contact" />
     </main>
     <Footer />
+    <BackToTop />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import ScrollProgress from './components/ScrollProgress.vue'
 import Header from './components/Header.vue'
 import Hero from './components/Hero.vue'
 import Services from './components/Services.vue'
+import Packages from './components/Packages.vue'
 import About from './components/About.vue'
 import Contact from './components/Contact.vue'
 import Footer from './components/Footer.vue'
+import BackToTop from './components/BackToTop.vue'
 
 const isLoaded = ref(false)
 

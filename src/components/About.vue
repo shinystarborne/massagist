@@ -201,8 +201,9 @@
 }
 
 .photo-placeholder:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) rotate(2deg);
+  box-shadow: 0 15px 35px rgba(210, 180, 140, 0.3);
+  background: linear-gradient(135deg, var(--bg-accent), rgba(210, 180, 140, 0.1));
 }
 
 .photo-icon svg {
@@ -247,10 +248,12 @@
 
 /* Qualifications Section */
 .qualifications-section {
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   padding: var(--space-2xl);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-gray-200);
+  border: 1px solid rgba(210, 180, 140, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .qualifications-title {
@@ -278,9 +281,15 @@
 }
 
 .qualification-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(107, 142, 35, 0.15);
   border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--bg-primary), rgba(107, 142, 35, 0.05));
+}
+
+.qualification-card:hover .qualification-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--color-primary);
 }
 
 .qualification-icon {

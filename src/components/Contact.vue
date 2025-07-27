@@ -40,9 +40,8 @@
             
             <a href="https://t.me/lilia_massage" class="action-btn telegram-btn cyrillic-text" target="_blank">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.198 2.802a1.5 1.5 0 0 0-1.651-.219L2.603 9.125a1.5 1.5 0 0 0 .09 2.815L8.5 13.5l1.56 5.807a1.5 1.5 0 0 0 2.815.09l6.542-16.944a1.5 1.5 0 0 0-.219-1.651z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8.5 13.5l13-13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.5 6.5l-6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <div class="btn-content">
                 <span class="btn-title">Telegram</span>
@@ -80,13 +79,37 @@
 <style scoped>
 .contact {
   padding: var(--space-3xl) 0;
-  background: var(--bg-secondary);
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(210, 180, 140, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(107, 142, 35, 0.08) 0%, transparent 50%),
+    var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(210, 180, 140, 0.03), transparent);
+  animation: rotate 30s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-xl);
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Header */
@@ -160,8 +183,8 @@
 }
 
 .action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   text-decoration: none;
 }
 
@@ -169,7 +192,10 @@
   border-color: var(--color-secondary);
   background: var(--color-secondary);
   color: var(--text-inverse);
+  position: relative;
+  overflow: hidden;
 }
+
 
 .phone-btn:hover {
   background: var(--color-secondary-dark);
